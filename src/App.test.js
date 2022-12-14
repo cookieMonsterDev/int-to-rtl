@@ -11,7 +11,7 @@ test("init conditions", () => {
   expect(Button).toBeEnabled();
 
   //chack that the checkbox is unchecked
-  expect(CheckBox).not.toBeChecked;
+  expect(CheckBox).not.toBeChecked();
 });
 
 test("button has the correct init color, and updatest whan clicks", () => {
@@ -54,7 +54,6 @@ test("Disabled button has gary color and reverts to red", () => {
   expect(Button).toHaveClass("button");
 });
 
-
 test("Disabled button has gary color and reverts to blue", () => {
   render(<App />);
 
@@ -73,16 +72,18 @@ test("Disabled button has gary color and reverts to blue", () => {
 
 /////////////////////////////////////////////////////
 
-describe('spaces before camel-case capital letters', () => {
+describe("spaces before camel-case capital letters", () => {
   test("Works for no inner capital letter", () => {
-    expect(replaceCamelWithSpaces('Red')).toBe('Red')
-  })
+    expect(replaceCamelWithSpaces("Red")).toBe("Red");
+  });
 
   test("Works for one capital letter", () => {
-    expect(replaceCamelWithSpaces('MidnightBlue')).toBe('Midnight Blue')
-  })
+    expect(replaceCamelWithSpaces("MidnightBlue")).toBe("Midnight Blue");
+  });
 
   test("Works for multiple capital letter", () => {
-    expect(replaceCamelWithSpaces('MidnightBlueTest')).toBe('Midnight Blue Test')
-  })
-})
+    expect(replaceCamelWithSpaces("MidnightBlueTest")).toBe(
+      "Midnight Blue Test"
+    );
+  });
+});
