@@ -1,19 +1,21 @@
 import "./App.css";
 import { useState } from "react";
 
-const style1 = { backgroundColor: "blue", color: "white" };
-const style2 = { backgroundColor: "red", color: "white" };
+export const replaceCamelWithSpaces = (colorName) => {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+}
 
-function App() {
+export const App = () => {
   const [state, setState] = useState(false);
   const [toggle, setToggle] = useState(false);
 
   return (
     <div>
       <button
-        style={state ? style1 : style2}
+        className={`button ${state ? 'isOn' : ''}`}
         onClick={() => setState((prev) => !prev)}
         disabled={toggle ? true : false}
+        style={toggle ? {backgroundColor: "gray"} : {}}
       >
         {state ? "Change to red" : "Change to blue"}
       </button>
@@ -22,8 +24,8 @@ function App() {
         id="disable-button-checkbox"
         onChange={() => setToggle((prev) => !prev)}
       />
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
   );
 }
 
-export default App;
