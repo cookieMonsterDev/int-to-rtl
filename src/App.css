@@ -1,9 +1,5 @@
-.button {
-  background-color: red;
-  color: white;
-}
-
-.isOn {
-  background-color: blue;
+* {
+  margin: 0;
+  padding: 0;
 }
 

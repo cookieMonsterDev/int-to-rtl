@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { App, replaceCamelWithSpaces } from "./App";
+import { ColorButton, replaceCamelWithSpaces } from "./ColorButton";
 
 test("init conditions", () => {
-  render(<App />);
+  render(<ColorButton />);
 
   const Button = screen.getByRole("button", { name: "Change to blue" });
   const CheckBox = screen.getByRole("checkbox");
@@ -15,19 +15,19 @@ test("init conditions", () => {
 });
 
 test("button has the correct init color, and updatest whan clicks", () => {
-  render(<App />);
+  render(<ColorButton />);
 
   const Button = screen.getByRole("button", { name: "Change to blue" });
 
-  expect(Button).toHaveClass("button");
+  expect(Button).toHaveClass("btn");
   fireEvent.click(Button);
 
-  expect(Button).toHaveClass("button isOn");
+  expect(Button).toHaveClass("btn isOn");
   expect(Button).toHaveTextContent("Change to red");
 });
 
 test("button should be disbled when checkbox is checked", () => {
-  render(<App />);
+  render(<ColorButton />);
 
   const Button = screen.getByRole("button", { name: "Change to blue" });
   const CheckBox = screen.getByRole("checkbox", { name: "Disable button" });
@@ -40,7 +40,7 @@ test("button should be disbled when checkbox is checked", () => {
 });
 
 test("Disabled button has gary color and reverts to red", () => {
-  render(<App />);
+  render(<ColorButton />);
 
   const Button = screen.getByRole("button", { name: "Change to blue" });
   const CheckBox = screen.getByRole("checkbox", { name: "Disable button" });
@@ -51,11 +51,11 @@ test("Disabled button has gary color and reverts to red", () => {
 
   fireEvent.click(CheckBox);
   expect(Button).toBeEnabled();
-  expect(Button).toHaveClass("button");
+  expect(Button).toHaveClass("btn");
 });
 
 test("Disabled button has gary color and reverts to blue", () => {
-  render(<App />);
+  render(<ColorButton />);
 
   const Button = screen.getByRole("button", { name: "Change to blue" });
   const CheckBox = screen.getByRole("checkbox", { name: "Disable button" });
@@ -67,7 +67,7 @@ test("Disabled button has gary color and reverts to blue", () => {
 
   fireEvent.click(CheckBox);
   expect(Button).toBeEnabled();
-  expect(Button).toHaveClass("button isOn");
+  expect(Button).toHaveClass("btn isOn");
 });
 
 /////////////////////////////////////////////////////
